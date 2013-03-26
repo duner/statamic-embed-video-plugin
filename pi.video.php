@@ -13,11 +13,12 @@ class Plugin_video extends Plugin {
 		$url		= $this->fetchParam('url', null); // defaults to no
 		$width		= $this->fetchParam('width', 640, 'is_numeric'); // defaults to 640
 		$height		= $this->fetchParam('height', 390, 'is_numeric'); // defaults to 390
+		$site_root  = Statamic::get_site_root();
 
 		$videoid = $this->getYouTubeVideoID($url)
 
 		if ($url ) {
-			$iframe = '<iframe class="youtube video" type="text/html" width="'.$width .'" height="'.$height.'" src="http://www.youtube.com/embed/'.$videoid.'/"></iframe>';
+			$iframe = '<iframe class="youtube video" type="text/html" width="'.$width .'" height="'.$height.'" src="http://www.youtube.com/embed/'.$videoid.'?enablejsapi=1&origin='.$site_root.'"></iframe>';
 			return $iframe;
 		}
 		return '';
