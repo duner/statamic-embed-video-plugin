@@ -47,5 +47,4 @@ class Plugin_video extends Plugin {
 		}
 		return false;
 	}
-
 ?>
