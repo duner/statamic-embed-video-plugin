@@ -18,6 +18,7 @@ class Plugin_video extends Plugin {
 		$videoid = $this->getYouTubeVideoID($url)
 
 		if ($url ) {
+			// https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
 			$iframe = '<iframe class="youtube video" type="text/html" width="'.$width .'" height="'.$height.'" src="http://www.youtube.com/embed/'.$videoid.'?enablejsapi=1&origin='.$site_root.'"></iframe>';
 			return $iframe;
 		}
