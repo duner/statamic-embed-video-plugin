@@ -17,7 +17,7 @@ class Plugin_video extends Plugin {
 		$videoid = $this->getYouTubeVideoID($url)
 
 		if ($url ) {
-			$iframe = '<iframe class="youtube video" type="text/html" width="'.$width .'" height="'.$height .'" src="http://www.youtube.com/embed/'.$videoid.'/"></iframe>';
+			$iframe = '<iframe class="youtube video" type="text/html" width="'.$width .'" height="'.$height.'" src="http://www.youtube.com/embed/'.$videoid.'/"></iframe>';
 			return $iframe;
 		}
 		return '';
