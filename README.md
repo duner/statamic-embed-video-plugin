@@ -6,9 +6,10 @@ This is a plugin for Statamic to embed videos from YouTube and Vimeo.
 
 ###Usage
 
-	{{ video:youtube url="http://www.youtube.com/watch?v=X5AZzOw7FwA" }}
+	{{ video:youtube src="http://www.youtube.com/watch?v=X5AZzOw7FwA" }}
 	
 ####Paramaters
-* url
+* src
+* videoid
 * width
 * height
