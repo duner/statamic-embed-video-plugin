@@ -5,9 +5,10 @@ This is a plugin for Statamic to embed videos from YouTube and Vimeo. I have had
 ##YouTube
 
 ###Usage
-
+Either of these two would work for embedding a video from YouTube. If you use the `src` parameter, the plugin performs a Regular Expression on the url and will extract the video ID without you having to extract it independently.
 	{{ video:youtube src="http://www.youtube.com/watch?v=X5AZzOw7FwA" }}
-	
+	{{ video:youtube id="X5AZzOw7FwA" }}
+
 ####Paramaters
 * `src` — URL pointing to a YouTube video. 
 * `id` – an 11 character code pointing to a specific YouTube video. In the example above, `X5AZzOw7FwA`
