@@ -13,3 +13,6 @@ This is a plugin for Statamic to embed videos from YouTube and Vimeo. I have had
 * `id` – an 11 character code pointing to a specific YouTube video. In the example above, `X5AZzOw7FwA`
 * `width` — defaults to 640
 * `height` — defaults to 390
+
+##Vimeo
+Support to come. Still working on this.
