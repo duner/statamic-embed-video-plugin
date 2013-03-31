@@ -1,6 +1,16 @@
 <?php
 class Plugin_Video extends Plugin {
-
+	
+	var $meta = array(
+		'name'       => 'Embed Videos',
+		'version'    => '0.1',
+		'author'     => 'Alex Duner', 
+		'author_url' => 'htpp://alexduner.com'
+		// @asduner on Twitter
+		// @duner on App.net
+		// Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting the plugin.
+	);
+	
 	public function index() {
 		$src		= $this->fetch_param('src', false, false, false, false); // defaults to false
 		$width		= $this->fetch_param('width', 640, 'is_numeric');
