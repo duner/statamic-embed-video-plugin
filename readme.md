@@ -10,9 +10,9 @@ Either of these two would work for embedding a video from YouTube. If you use th
 	{{ video:youtube src="http://www.youtube.com/watch?v=X5AZzOw7FwA" }}
 	{{ video:youtube id="X5AZzOw7FwA" }}
 	
-Both of the above lines of code will output the following HTML code:
+Either of the above lines of code will output the following HTML code:
 	
-`<iframe class="youtube video" type="text/html" width="640" height="390" src="https://www.youtube.com/embedX5AZzOw7FwA?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>`
+	<iframe class="youtube video" type="text/html" width="640" height="390" src="https://www.youtube.com/embedX5AZzOw7FwA?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 
 
 ####Paramaters
