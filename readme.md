@@ -1,6 +1,8 @@
 #Statamic Video Plugin
 
-This is a plugin for Statamic to embed videos from YouTube and Vimeo. I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter] or send me an email at <asduner@gmail.com>.
+This is a plugin for Statamic to embed videos from YouTube and Vimeo. I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter], [App.net][adn], or via email at <asduner@gmail.com>.
+
+Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting the plugin.
 
 ##YouTube
 
@@ -12,7 +14,7 @@ Either of these two would work for embedding a video from YouTube. If you use th
 	
 Either of the above lines of code will output the following HTML code:
 	
-	<iframe class="youtube video" type="text/html" width="640" height="390" src="https://www.youtube.com/embedX5AZzOw7FwA?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+	<iframe class="youtube video" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/X5AZzOw7FwA?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 
 
 ####Paramaters
@@ -25,3 +27,4 @@ Either of the above lines of code will output the following HTML code:
 Support to come. Still working on this.
 
 [twitter]:https://twitter.com/asduner
+[adn]:https://alpha.app.net/duner
