@@ -41,7 +41,7 @@ class Plugin_Video extends Plugin {
 		}
 
 		if ($videoid) {
-			$html = '<iframe class="youtube video" type="text/html" width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$videoid.'?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>';
+			$html = '<iframe class="youtube video" type="text/html" width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$videoid.'" frameborder="0" allowfullscreen></iframe>';
 			return $html;
 		}
 
