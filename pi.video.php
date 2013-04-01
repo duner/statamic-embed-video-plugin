@@ -14,22 +14,6 @@ class Plugin_Video extends Plugin {
 		$height		= $this->fetch_param('height', 390, 'is_numeric');
 		$videoid	= $this->fetch_param('id', false, false, false, false); // defaults to false
 
-		$enableJS = true;
-		$noBranding = true;
-		$dispRelVid = false;
-		$loopVideo = false;
-		$playAuto = false;
-		$dispInfo = true;
-		$dispControls = true;
-
-		if ($enableJS) { $enablejsapi = 1; } else { $enablejsapi = 0; }
-		if ($noBranding) { $modestbranding = 1; } else { $modestbranding = 0; }
-		if ($dispRelVid) { $rel = 1; } else { $rel = 0; }
-		if ($loopVideo) { $loop = 1; } else { $loop = 0; }
-		if ($playAuto) { $autoplay = 1; } else { $autoplay = 0; }
-		if ($dispInfo) { $showinfo = 1; } else { $showinfo = 0; }
-		if ($dispControls) { $controls = 1; } else { $controls = 0; }
-
 		if ($src && ! $videoid) {
 			//http://stackoverflow.com/questions/6556559/youtube-api-extract-video-id
 			$pattern =
@@ -57,7 +41,7 @@ class Plugin_Video extends Plugin {
 		}
 
 		if ($videoid) {
-			$html = '<iframe class="youtube video" type="text/html" width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$videoid.'?autoplay='.$autoplay.'&controls='.$controls.'&enablejsapi='.$enablejsapi.'&loop='.$loop.'&modestbranding='.$modestbranding.'&rel='.$rel.'&showinfo='.$showinfo.'" frameborder="0" allowfullscreen></iframe>';
+			$html = '<iframe class="youtube video" type="text/html" width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$videoid.'?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>';
 			return $html;
 		}
 
