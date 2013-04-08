@@ -30,6 +30,8 @@ Either of the above lines of code will output the following HTML code:
 * `rel` — load related videos once playback of initial video starts and display in "genie menu" when menu button is pressed. Defaults to **true**. If you set this to false, that will also disable the player search functionality.
 * `showinfo` — display information like the video title and rating before the video starts playing. Defaults to **true**.
 
+Paramaters that I have not yet implemented are: embedding playlists, changing from the dark theme to the light theme, and allowing you to set the start time of an embedded video. If you would like any of these included in the plugin, just let me know and I will do my best to add them.
+
 ##Vimeo
 Support to come. Still working on this.
 
