@@ -21,14 +21,14 @@ Either of the above lines of code will output the following HTML code:
 * `id` – an 11 character code pointing to a specific YouTube video. In the example above, `X5AZzOw7FwA`.
 * `width` — defaults to 640.
 * `height` — defaults to 390.
-* `responsive` — enables [FitVids.js][fitvids] for fluid video embeds. Defaults to true.
-* `autoplay` — . Defaults to false.
-* `controls` — . Defaults to true.
-* `enablejsapi` — . Defaults to false.
-* `loop` — . Defaults to false.
-* `modestbranding` — . Defaults to false.
-* `rel` — . Defaults to false.
-* `showinfo` — . Defaults to true.
+* `responsive` — enables [FitVids.js][fitvids] for fluid video embeds. Defaults to **true**.
+* `autoplay` — automatically play the initial video when the player loads. Defaults to **false**.
+* `controls` — display player controls. Defaults to **true**.
+* `enablejsapi` — enable the [YouTube Javascript API][jsapi]. Defaults to **false**.
+* `loop` — if the player is loading a single video, play the video again and again. Defaults to **false**.
+* `modestbranding` — prevent the YouTube logo from displaying in the control bar. Note that if you set this paramater to true a small YouTube text label will still display in the upper right corner of a paused video when the user's mouse hovers over the player. Defaults to **false**.
+* `rel` — load related videos once playback of initial video starts and display in "genie menu" when menu button is pressed. Defaults to **true**. If you set this to false, that will also disable the player search functionality.
+* `showinfo` — display information like the video title and rating before the video starts playing. Defaults to **true**.
 
 ##Vimeo
 Support to come. Still working on this.
@@ -36,3 +36,5 @@ Support to come. Still working on this.
 [twitter]:https://twitter.com/asduner
 [adn]:https://alpha.app.net/duner
 [fitvids]:https://github.com/davatron5000/FitVids.js
+[jsapi]:https://developers.google.com/youtube/iframe_api_reference
+
