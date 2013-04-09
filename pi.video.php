@@ -10,20 +10,21 @@ class Plugin_Video extends Plugin {
 
 	public function youtube() {
 		$src		= $this->fetchParam('src', false, false, false, false); // defaults to false
+		$videoid	= $this->fetchParam('id', false, false, false, false); // defaults to false
 		$width		= $this->fetchParam('width', 640, 'is_numeric');
 		$height		= $this->fetchParam('height', 390, 'is_numeric');
-		$videoid	= $this->fetchParam('id', false, false, false, false); // defaults to false
-		$responsive	= $this->fetchParam('responsive', true, null, true); // defaults to true
+		$responsive	= $this->fetchParam('responsive', 'true', false, true); // defaults to true
 
-
-		$enableJS = false; //defaults to false
-		$noBranding = false; //defaults to false
-		$dispRelVid = false; //defaults to false
-		$loopVideo = false; //defaults to false
-		$playAuto = false; //defaults to false
-		$dispInfo = true; //defaults to true
-		$dispControls = true; //defaults to true
-
+		//Options from YouTube's iFrame API (Booleans)
+		$enableJS 	= $this->fetchParam('enablejsapi', 'true', false, true); // defaults to true
+		$noBranding 	= $this->fetchParam('modestbranding', 'false', false, true); // defaults to false;
+		$dispRelVid 	= $this->fetchParam('rel', 'false', false, true); // defaults to false;
+		$loopVideo 	= $this->fetchParam('loop', 'false', false, true); // defaults to false;
+		$playAuto	= $this->fetchParam('autoplay', 'false', false, true); // defaults to false;; //defaults to false
+		$dispInfo 	= $this->fetchParam('showinfo', 'true', false, true); // defaults to true
+		$dispControls 	= $this->fetchParam('controls', 'true', false, true); // defaults to true
+		
+		//Convert the Booleans to 1 or 0 as per YouTube's iFrame API
 		if ($enableJS) { $enablejsapi = 1; } else { $enablejsapi = 0; }
 		if ($noBranding) { $modestbranding = 1; } else { $modestbranding = 0; }
 		if ($dispRelVid) { $rel = 1; } else { $rel = 0; }
@@ -32,6 +33,7 @@ class Plugin_Video extends Plugin {
 		if ($dispInfo) { $showinfo = 1; } else { $showinfo = 0; }
 		if ($dispControls) { $controls = 1; } else { $controls = 0; }
 
+		//Extract the Video ID from the URL
 		if ($src && ! $videoid) {
 			//http://stackoverflow.com/questions/6556559/youtube-api-extract-video-id
 			//http://stackoverflow.com/questions/5830387/how-to-find-all-youtube-video-ids-in-a-string-using-a-regex/5831191#5831191
@@ -59,6 +61,7 @@ class Plugin_Video extends Plugin {
 			}
 		}
 
+		//Return iFrame embed code and (if enabled) the FitVids.js scripts
 		if ($videoid) {
 			$html = '<iframe class="youtube video" type="text/html" width="'.$width.'" height="'.$height.'" src="https://www.youtube.com/embed/'.$videoid.'?autoplay='.$autoplay.'&controls='.$controls.'&enablejsapi='.$enablejsapi.'&loop='.$loop.'&modestbranding='.$modestbranding.'&rel='.$rel.'&showinfo='.$showinfo.'" frameborder="0" allowfullscreen></iframe>';
 			if ($responsive) {
