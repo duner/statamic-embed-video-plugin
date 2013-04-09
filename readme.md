@@ -1,8 +1,8 @@
 #Statamic Video Plugin
 
-This is a plugin for Statamic to embed videos from YouTube and Vimeo. I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter], [App.net][adn], or via email at <asduner@gmail.com>.
+This is a plugin for Statamic to embed videos from YouTube and Vimeo. It (optionally) makes use of [FitVids.js][fitvids] to create fluid video embeds for responsive web designs.
 
-Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting the plugin.
+I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter], [App.net][adn], or via email at <asduner@gmail.com>. Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting.
 
 ##YouTube
 
@@ -34,6 +34,7 @@ Paramaters that I have not yet implemented are: embedding playlists, changing fr
 
 ##Vimeo
 Support to come. Still working on this.
+
 
 [twitter]:https://twitter.com/asduner
 [adn]:https://alpha.app.net/duner
