@@ -4,6 +4,13 @@ This is a plugin for Statamic to embed videos from YouTube and Vimeo. It (option
 
 I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter], [App.net][adn], or via email at <asduner@gmail.com>. Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting.
 
+##Installation
+According to the Statamic documentation:
+
+>Each plugin must extend the core Plugin class and the class name must be prefixed with Plugin_. Additionally, your class name must much your add-on's folder and file name exactly (for example: _add-ons/play/pi.play.php).
+
+So, for this plugin make sure that you put the unzipped folder you download into the _add-ons folder and be sure to change its name to "video".
+
 ##YouTube
 
 ###Usage
