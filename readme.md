@@ -4,6 +4,8 @@ This is a plugin for Statamic to embed videos from YouTube and Vimeo. It (option
 
 I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter], [App.net][adn], or via email at <asduner@gmail.com>. I may write more about this on [my blog]. Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting.
 
+I hope that this documentation is usefull. It is a bit lengthy but that is more for my own sake so that I can keep track of how everything works. It is actually extremely simple to use.
+
 ##Installation
 According to the Statamic documentation:
 
@@ -36,6 +38,8 @@ Either of the above lines of code will output the following HTML code:
 * `modestbranding` — prevent the YouTube logo from displaying in the control bar. Note that if you set this paramater to true a small YouTube text label will still display in the upper right corner of a paused video when the user's mouse hovers over the player. Defaults to **false**.
 * `rel` — load related videos once playback of initial video starts and display in "genie menu" when menu button is pressed. Defaults to **true**. If you set this to false, that will also disable the player search functionality.
 * `showinfo` — display information like the video title and rating before the video starts playing. Defaults to **true**.
+
+The way I have currently set up the FitVids.js implementation makes it act on *all* videos on your site, even if you only embed one video using the plugin.
 
 Paramaters that I have not yet implemented are: embedding playlists, changing from the dark theme to the light theme, and allowing you to set the start time of an embedded video. If you would like any of these included in the plugin, just let me know and I will do my best to add them.
 
