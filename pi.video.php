@@ -16,13 +16,13 @@ class Plugin_Video extends Plugin {
 		$responsive	= $this->fetchParam('responsive', 'true', false, true); // defaults to true
 
 		//Options from YouTube's iFrame API (Booleans)
-		$enableJS 	= $this->fetchParam('enablejsapi', 'true', false, true); // defaults to true
-		$noBranding 	= $this->fetchParam('modestbranding', 'false', false, true); // defaults to false;
-		$dispRelVid 	= $this->fetchParam('rel', 'false', false, true); // defaults to false;
-		$loopVideo 	= $this->fetchParam('loop', 'false', false, true); // defaults to false;
-		$playAuto	= $this->fetchParam('autoplay', 'false', false, true); // defaults to false;; //defaults to false
-		$dispInfo 	= $this->fetchParam('showinfo', 'true', false, true); // defaults to true
-		$dispControls 	= $this->fetchParam('controls', 'true', false, true); // defaults to true
+		$enableJS 	= $this->fetchParam('enablejsapi', true, false, true); // defaults to true
+		$noBranding 	= $this->fetchParam('modestbranding', false, false, true); // defaults to false
+		$dispRelVid 	= $this->fetchParam('rel', false, false, true); // defaults to false
+		$loopVideo 	= $this->fetchParam('loop', false, false, true); // defaults to false
+		$playAuto	= $this->fetchParam('autoplay', false, false, true); // defaults to false
+		$dispInfo 	= $this->fetchParam('showinfo', true, false, true); // defaults to true
+		$dispControls 	= $this->fetchParam('controls', true, false, true); // defaults to true
 		
 		//Convert the Booleans to 1 or 0 as per YouTube's iFrame API
 		if ($enableJS) { $enablejsapi = 1; } else { $enablejsapi = 0; }
