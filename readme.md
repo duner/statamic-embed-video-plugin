@@ -6,6 +6,8 @@ I have had some problems getting this to work on version 4.2 of Statamic but it 
 
 I hope that this documentation is usefull. It is a bit lengthy but that is more for my own sake so that I can keep track of how everything works. It is actually extremely simple to use.
 
+Also, I get the sense that some of this code is a bit clunky. As I am new to PHP (and programming for that matter) if you have suggestions on how to clean up the code I would love to hear them.
+
 ##Installation
 According to the Statamic documentation:
 
