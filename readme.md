@@ -13,9 +13,7 @@ According to the Statamic documentation:
 
 So, for this plugin make sure that you put the unzipped folder you download into the _add-ons folder and be sure to change its name to "video".
 
-##YouTube
-
-###Usage
+##Usage
 Either of these two would work for embedding a video from YouTube. If you use the `src` parameter, the plugin performs a Regular Expression on the url and will extract the video ID without you having to isolate it independently.
 
 	{{ video:youtube src="http://www.youtube.com/watch?v=X5AZzOw7FwA" }}
@@ -25,12 +23,16 @@ Either of the above lines of code will output the following HTML code:
 	
 	<iframe class="youtube video" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/X5AZzOw7FwA?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 
-####Paramaters
-* `src` — URL pointing to a YouTube video. 
-* `id` – an 11 character code pointing to a specific YouTube video. In the example above, `X5AZzOw7FwA`.
+###Paramaters
+* `src` — URL pointing to a YouTube or Vimeo video. 
+* `id` – an 11 character code pointing to a specific YouTube (or Vimeo) video. In the example above, `X5AZzOw7FwA`.
 * `width` — defaults to 640.
 * `height` — defaults to 390.
 * `responsive` — enables [FitVids.js][fitvids] for fluid video embeds. Defaults to **true**.
+
+The way I have currently set up the FitVids.js implementation makes it act on *all* videos on your site, even if you only embed one video using the plugin.
+
+###YouTube
 * `autoplay` — automatically play the initial video when the player loads. Defaults to **false**.
 * `controls` — display player controls. Defaults to **true**.
 * `enablejsapi` — enable the [YouTube Javascript API][jsapi]. Defaults to **false**.
@@ -39,12 +41,17 @@ Either of the above lines of code will output the following HTML code:
 * `rel` — load related videos once playback of initial video starts and display in "genie menu" when menu button is pressed. Defaults to **true**. If you set this to false, that will also disable the player search functionality.
 * `showinfo` — display information like the video title and rating before the video starts playing. Defaults to **true**.
 
-The way I have currently set up the FitVids.js implementation makes it act on *all* videos on your site, even if you only embed one video using the plugin.
-
 Paramaters that I have not yet implemented are: embedding playlists, changing from the dark theme to the light theme, and allowing you to set the start time of an embedded video. If you would like any of these included in the plugin, just let me know and I will do my best to add them.
 
-##Vimeo
-Support to come. Still working on this.
+###Vimeo
+* `title`—Show the title on the video. Defaults to **true**.
+* `byline`—Show the user’s byline on the video. Defaults to **true**.
+* `portrait`—Show the user’s portrait on the video. Defaults to **true**.
+* `autoplay`—Play the video automatically on load. Defaults to **false**. Note that this won’t work on some devices.
+* `loop`—Play the video again when it reaches the end. Defaults to **false**.
+* `api`—Enable the Javascript API. Defaults to **false**
+
+I have not yet implemented the `color` paramater. If you feel like this is important, let me know and I will try to implement it.
 
 
 [twitter]:https://twitter.com/asduner
