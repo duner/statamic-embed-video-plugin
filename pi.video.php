@@ -3,7 +3,7 @@ class Plugin_Video extends Plugin {
 
 	var $meta = array(
 		'name'       => 'Embed Videos',
-		'version'    => '0.1',
+		'version'    => '0.2',
 		'author'     => 'Alex Duner', 
 		'author_url' => 'htpp://alexduner.com'
 	);
@@ -17,13 +17,12 @@ class Plugin_Video extends Plugin {
 
 		//Options from YouTube's iFrame API (Booleans)
 		$enableJS 	= $this->fetchParam('enablejsapi', true, false, true); // defaults to true
-		$noBranding 	= $this->fetchParam('modestbranding', false, false, true); // defaults to false
-		$dispRelVid 	= $this->fetchParam('rel', false, false, true); // defaults to false
-		$loopVideo 	= $this->fetchParam('loop', false, false, true); // defaults to false
-		$playAuto	= $this->fetchParam('autoplay', false, false, true); // defaults to false
+		$noBranding 	= $this->fetchParam('modestbranding', false, false, true); // defaults to false;
+		$dispRelVid 	= $this->fetchParam('rel', false, false, true); // defaults to false;
+		$loopVideo 	= $this->fetchParam('loop', false, false, true); // defaults to false;
+		$playAuto	= $this->fetchParam('autoplay', false, false, true); //defaults to false
 		$dispInfo 	= $this->fetchParam('showinfo', true, false, true); // defaults to true
 		$dispControls 	= $this->fetchParam('controls', true, false, true); // defaults to true
-		
 		//Convert the Booleans to 1 or 0 as per YouTube's iFrame API
 		if ($enableJS) { $enablejsapi = 1; } else { $enablejsapi = 0; }
 		if ($noBranding) { $modestbranding = 1; } else { $modestbranding = 0; }
@@ -68,7 +67,7 @@ class Plugin_Video extends Plugin {
 				//Implemented using FitVids.js
 				$html .= '
 				<script src="_add-ons/video/js/jquery.min.js"></script>
-				<script src="_add-ons/video/js/jquery.fitvids.js"></script>
+				<script src="_add-ons/video/js/jquery.fitvids.min.js"></script>
 				<script>
 				$(document).ready(function(){
 					// Target your .container, .wrapper, .post, etc.
@@ -80,6 +79,55 @@ class Plugin_Video extends Plugin {
 			return $html;
 		}
 		return '<code>This video is not pointed at a valid YouTube URL.</code>';
+	}
+
+	public function vimeo() {
+		$src		= $this->fetchParam('src', false, false, false, false); // defaults to false
+		$videoid	= $this->fetchParam('id', false, false, false, false); // defaults to false
+		$width		= $this->fetchParam('width', 640, 'is_numeric');
+		$height		= $this->fetchParam('height', 390, 'is_numeric');
+		$responsive	= $this->fetchParam('responsive', 'true', false, true); // defaults to true
+
+		//Options from YouTube's iFrame API (Booleans)
+		$showTitle 	= $this->fetchParam('enablejsapi', true, false, true); // defaults to true
+		$showByline 	= $this->fetchParam('modestbranding', true, false, true); // defaults to true;
+		$showPortrait 	= $this->fetchParam('rel', true, false, true); // defaults to true;
+		$enableAuto 	= $this->fetchParam('showinfo', false, false, true); // defaults to false
+		$enableAPI 	= $this->fetchParam('showinfo', false, false, true); // defaults to false
+		$loopVideo 	= $this->fetchParam('controls', false, false, true); // defaults to false
+		
+		//Convert the Booleans to 1 or 0 as per Vimeo's iFrame API
+		if ($showTitle) { $title = 1; } else { $title = 0; }
+		if ($showByline) { $byline = 1; } else { $byline = 0; }
+		if ($showPortrait) { $portrait = 1; } else { $portrait = 0; }
+		if ($enableAuto) { $autoplay = 1; } else { $autoplay = 0; }
+		if ($enableAPI) { $api = 1; } else { $api = 0; }
+		if ($loopVideo) { $loop = 1; } else { $loop = 0; }
+
+		//Extract the Video ID from the URL
+		if ($src && ! $videoid) {
+			$videoid = substr(parse_url($src, PHP_URL_PATH), 1);
+		}
+
+		//Return iFrame embed code and (if enabled) the FitVids.js scripts
+		if ($videoid) {
+			$html = '<iframe class="vimeo video" type="text/html" width="'.$width.'" height="'.$height.'" src="https://player.vimeo.com/video/'.$videoid.'?autoplay='.$autoplay.'&title='.$title.'&api='.$api.'&loop='.$loop.'&byline='.$byline.'&portrait='.$portrait.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+			if ($responsive) {
+				//Implemented using FitVids.js
+				$html .= '
+				<script src="_add-ons/video/js/jquery.min.js"></script>
+				<script src="_add-ons/video/js/jquery.fitvids.min.js"></script>
+				<script>
+				$(document).ready(function(){
+					// Target your .container, .wrapper, .post, etc.
+					$("body").fitVids();
+				  });
+				</script>
+				';
+			}
+			return $html;
+		}
+		return '<code>This video is not pointed at a valid Vimeo URL.</code>';
 	}
 
 }
