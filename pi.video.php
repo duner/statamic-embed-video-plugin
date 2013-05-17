@@ -89,12 +89,12 @@ class Plugin_Video extends Plugin {
 		$responsive	= $this->fetchParam('responsive', 'true', false, true); // defaults to true
 
 		//Options from YouTube's iFrame API (Booleans)
-		$showTitle 	= $this->fetchParam('enablejsapi', true, false, true); // defaults to true
-		$showByline 	= $this->fetchParam('modestbranding', true, false, true); // defaults to true;
-		$showPortrait 	= $this->fetchParam('rel', true, false, true); // defaults to true;
-		$enableAuto 	= $this->fetchParam('showinfo', false, false, true); // defaults to false
-		$enableAPI 	= $this->fetchParam('showinfo', false, false, true); // defaults to false
-		$loopVideo 	= $this->fetchParam('controls', false, false, true); // defaults to false
+		$showTitle 	= $this->fetchParam('title', true, false, true); // defaults to true
+		$showByline 	= $this->fetchParam('byline', true, false, true); // defaults to true;
+		$showPortrait 	= $this->fetchParam('portrait', true, false, true); // defaults to true;
+		$enableAuto 	= $this->fetchParam('autoplay', false, false, true); // defaults to false
+		$enableAPI 	= $this->fetchParam('api', false, false, true); // defaults to false
+		$loopVideo 	= $this->fetchParam('loop', false, false, true); // defaults to false
 		
 		//Convert the Booleans to 1 or 0 as per Vimeo's iFrame API
 		if ($showTitle) { $title = 1; } else { $title = 0; }
@@ -106,6 +106,7 @@ class Plugin_Video extends Plugin {
 
 		//Extract the Video ID from the URL
 		if ($src && ! $videoid) {
+			//via http://stackoverflow.com/a/10489007
 			$videoid = substr(parse_url($src, PHP_URL_PATH), 1);
 		}
 
