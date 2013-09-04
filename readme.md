@@ -15,6 +15,8 @@ According to the Statamic documentation:
 
 So, for this plugin make sure that you put the unzipped folder you download into the _add-ons folder and be sure to change its name to "video".
 
+Also, make sure your site has access to jQuery if you want to enable responsive video embeds.
+
 ##Usage
 Either of these two would work for embedding a video from YouTube. If you use the `src` parameter, the plugin performs a Regular Expression on the url and will extract the video ID without you having to isolate it independently.
 
