@@ -66,7 +66,6 @@ class Plugin_Video extends Plugin {
 			if ($responsive) {
 				//Implemented using FitVids.js
 				$html .= '
-				<script src="_add-ons/video/js/jquery.min.js"></script>
 				<script src="_add-ons/video/js/jquery.fitvids.min.js"></script>
 				<script>
 				$(document).ready(function(){
@@ -116,7 +115,6 @@ class Plugin_Video extends Plugin {
 			if ($responsive) {
 				//Implemented using FitVids.js
 				$html .= '
-				<script src="_add-ons/video/js/jquery.min.js"></script>
 				<script src="_add-ons/video/js/jquery.fitvids.min.js"></script>
 				<script>
 				$(document).ready(function(){
