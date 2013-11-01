@@ -66,11 +66,12 @@ class Plugin_Video extends Plugin {
 			if ($responsive) {
 				//Implemented using FitVids.js
 				$html .= '
+				
 				<script>
 				var initializeFitvids = function() {
-			            if ($("body").fitVids()) {
+			            try {
 			                $("body").fitVids();
-			            } else {
+			            } catch (e) {
 			                window.setTimeout(initializeFitvids, 50)
 			            }
 			        };
@@ -88,6 +89,7 @@ class Plugin_Video extends Plugin {
 			        };
 			        loadFitvids();
 			        </script>
+
 				';
 			}
 			return $html;
@@ -132,9 +134,9 @@ class Plugin_Video extends Plugin {
 				$html .= '
 				<script>
 				var initializeFitvids = function() {
-			            if ($("body").fitVids()) {
+			            try {
 			                $("body").fitVids();
-			            } else {
+			            } catch (e) {
 			                window.setTimeout(initializeFitvids, 50)
 			            }
 			        };
@@ -152,6 +154,7 @@ class Plugin_Video extends Plugin {
 			        };
 			        loadFitvids();
 			        </script>
+
 				';
 			}
 			return $html;
