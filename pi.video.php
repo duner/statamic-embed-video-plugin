@@ -66,13 +66,28 @@ class Plugin_Video extends Plugin {
 			if ($responsive) {
 				//Implemented using FitVids.js
 				$html .= '
-				<script src="_add-ons/video/js/jquery.fitvids.min.js"></script>
 				<script>
-				$(document).ready(function(){
-					// Target your .container, .wrapper, .post, etc.
-					$("body").fitVids();
-				  });
-				</script>
+				var initializeFitvids = function() {
+			            if ($("body").fitVids()) {
+			                $("body").fitVids();
+			            } else {
+			                window.setTimeout(initializeFitvids, 50)
+			            }
+			        };
+	
+				var loadFitvids = function() {
+			            if (window.$) {
+			                $.getScript("_add-ons/video/js/jquery.fitvids.min.js")
+			                $(document).ready(function(){
+				                // Target your .container, .wrapper, .post, etc.
+			        			initializeFitvids();
+				            });
+			            } else {
+			                window.setTimeout(loadFitvids, 50)
+			            }
+			        };
+			        loadFitvids();
+			        </script>
 				';
 			}
 			return $html;
@@ -115,13 +130,28 @@ class Plugin_Video extends Plugin {
 			if ($responsive) {
 				//Implemented using FitVids.js
 				$html .= '
-				<script src="_add-ons/video/js/jquery.fitvids.min.js"></script>
 				<script>
-				$(document).ready(function(){
-					// Target your .container, .wrapper, .post, etc.
-					$("body").fitVids();
-				  });
-				</script>
+				var initializeFitvids = function() {
+			            if ($("body").fitVids()) {
+			                $("body").fitVids();
+			            } else {
+			                window.setTimeout(initializeFitvids, 50)
+			            }
+			        };
+	
+				var loadFitvids = function() {
+			            if (window.$) {
+			                $.getScript("_add-ons/video/js/jquery.fitvids.min.js")
+			                $(document).ready(function(){
+				                // Target your .container, .wrapper, .post, etc.
+			        			initializeFitvids();
+				            });
+			            } else {
+			                window.setTimeout(loadFitvids, 50)
+			            }
+			        };
+			        loadFitvids();
+			        </script>
 				';
 			}
 			return $html;
