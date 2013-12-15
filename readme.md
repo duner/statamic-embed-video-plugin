@@ -27,6 +27,8 @@ Either of the above lines of code will output the following HTML code:
 	
 	<iframe class="youtube video" type="text/html" width="640" height="390" src="https://www.youtube.com/embed/X5AZzOw7FwA?feature=oembed&wmode=opaque&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 
+Additionally, you can return YouTube thumbnails in various sizes given a video `src` or `id`. The return value is a raw image URL.
+
 ###Paramaters
 * `src` — URL pointing to a YouTube or Vimeo video. 
 * `id` – an 11 character code pointing to a specific YouTube (or Vimeo) video. In the example above, `X5AZzOw7FwA`.
@@ -57,6 +59,10 @@ Paramaters that I have not yet implemented are: embedding playlists, changing fr
 
 I have not yet implemented the `color` paramater. If you feel like this is important, let me know and I will try to implement it.
 
+###YTThumb
+* `src` — URL pointing to a YouTube or Vimeo video. 
+* `id` – an 11 character code pointing to a specific YouTube (or Vimeo) video. In the example above, `X5AZzOw7FwA`.
+* `size` – one of the following; normal, medium, large, larger (see [StackExchange](http://stackoverflow.com/questions/2068344/how-to-get-thumbnail-of-youtube-video-link-using-youtube-api) for details).
 
 [twitter]:https://twitter.com/asduner
 [adn]:https://alpha.app.net/duner
