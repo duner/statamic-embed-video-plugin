@@ -3,8 +3,8 @@ class Plugin_Video extends Plugin {
 
 	var $meta = array(
 		'name'       => 'Embed Videos',
-		'version'    => '0.2',
-		'author'     => 'Alex Duner', 
+		'version'    => '0.3',
+		'author'     => 'Alex Duner',
 		'author_url' => 'htpp://alexduner.com'
 	);
 
@@ -97,6 +97,84 @@ class Plugin_Video extends Plugin {
 		return '<code>This video is not pointed at a valid YouTube URL.</code>';
 	}
 
+	// Return a youtube thumbnail image
+	public function ytthumb() {
+		$src		= $this->fetchParam('src', false, false, false, false); // defaults to false
+		$videoid	= $this->fetchParam('id', false, false, false, false); // defaults to false
+		$size 	= $this->fetchParam('size', 'normal');
+
+		//echo $size;
+
+		$size = strtolower($size);
+		$size_name = "";
+
+		$html = "";
+
+		switch ($size) {
+			case "0":
+				$size_name = "0";
+				break;
+			case "1":
+				$size_name = "1";
+				break;
+			case "2":
+				$size_name = "2";
+				break;
+			case "3":
+				$size_name = "3";
+				break;
+			case "medium":
+				$size_name = "mqdefault";
+				break;
+			case "large":
+				$size_name = "hqdefault";
+				break;
+			case "larger":
+				$size_name = "sddefault";
+				break;
+			default:
+				$size_name = "default";
+				break;
+		}
+
+		//echo $size_name;
+
+		//Extract the Video ID from the URL
+		if ($src && ! $videoid) {
+			//http://stackoverflow.com/questions/6556559/youtube-api-extract-video-id
+			//http://stackoverflow.com/questions/5830387/how-to-find-all-youtube-video-ids-in-a-string-using-a-regex/5831191#5831191
+			$pattern =
+				'%^						# Match any youtube URL
+				(?:https?://)?			# Optional scheme. Either http or https
+				(?:www\.)?				# Optional www subdomain
+				(?:						# Group host alternatives
+					youtu\.be/			# Either youtu.be,
+					| youtube\.com		# or youtube.com
+						(?:           	# Group path alternatives
+							/embed/     # Either /embed/
+							| /v/		# or /v/
+							| .*v=		# or /watch\?v=
+						)				# End path alternatives.
+				)						# End host alternatives.
+			([\w-]{10,12})  # Allow 10-12 for 11 char youtube id.
+			($|&).*         # if additional parameters are also in query string after video id.
+			$%x';
+
+			$result = preg_match($pattern, $src, $matches);
+
+			if ($result !== false) {
+				$videoid = $matches[1];
+			}
+		}
+
+		if ($videoid) {
+			$html = '//i1.ytimg.com/vi/' . $videoid . '/' . $size_name . '.jpg';
+			return $html;
+		}
+
+		return 'Something went wrong...';
+	}
+
 	public function vimeo() {
 		$src		= $this->fetchParam('src', false, false, false, false); // defaults to false
 		$videoid	= $this->fetchParam('id', false, false, false, false); // defaults to false
@@ -111,7 +189,7 @@ class Plugin_Video extends Plugin {
 		$enableAuto 	= $this->fetchParam('autoplay', false, false, true); // defaults to false
 		$enableAPI 	= $this->fetchParam('api', false, false, true); // defaults to false
 		$loopVideo 	= $this->fetchParam('loop', false, false, true); // defaults to false
-		
+
 		//Convert the Booleans to 1 or 0 as per Vimeo's iFrame API
 		if ($showTitle) { $title = 1; } else { $title = 0; }
 		if ($showByline) { $byline = 1; } else { $byline = 0; }
