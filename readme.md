@@ -2,11 +2,9 @@
 
 This is a plugin for Statamic to embed videos from YouTube and Vimeo. It (optionally) makes use of [FitVids.js][fitvids] to create fluid video embeds for responsive web designs.
 
-I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter], [App.net][adn], or via email at <asduner@gmail.com>. I may write more about this on [my blog][blog]. Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting.
+I have had some problems getting this to work on version 4.2 of Statamic but it should work fine on 1.5. If you have any questions, just ask me on Twitter [@asduner][twitter]. Special thanks to Jack McDade (@jackmcdade) for his help troubleshooting.
 
 I hope that this documentation is usefull. It is a bit lengthy but that is more for my own sake so that I can keep track of how everything works. It is actually extremely simple to use.
-
-Also, I get the sense that some of this code is a bit clunky. As I am new to PHP (and programming for that matter) if you have suggestions on how to clean up the code I would love to hear them.
 
 ##Installation
 According to the Statamic documentation:
