@@ -239,6 +239,56 @@ class Plugin_Video extends Plugin {
 		}
 		return '<code>This video is not pointed at a valid Vimeo URL.</code>';
 	}
+	// Return a vimeo thumbnail image
+	
+	public function vimeothumb() {
+		$videoid	= $this->fetchParam('id', false, false, false, false); // defaults to false
+		$size 	= $this->fetchParam('size', 'thumbnail_small');
+
+		$size = strtolower($size);
+		$size_name = "";
+
+		$html = "";
+
+		switch ($size) {
+			case "normal":
+				$size_name = "thumbnail_small";
+				break;
+			case "medium":
+				$size_name = "thumbnail_medium";
+				break;
+			case "large":
+				$size_name = "thumbnail_large";
+				break;
+			default:
+				$size_name = "thumbnail_small";
+				break;
+		}
+		$response = $this->vimeo_thumb_curl($videoid);
+		if($response){
+			return $response[0]->$size_name;
+
+		}
+
+
+
+		return false;
+	}
+	function vimeo_thumb_curl($id) 
+	{
+		
+		
+		$url_string = 'vimeo.com/api/v2/video/'."{$id}".'.json';
+		$request = curl_init($url_string);
+
+		curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+
+		$contents = curl_exec($request);
+		if ($contents){
+			return json_decode($contents);
+		}	
+		echo "video requires the CURL library to be installed."; // else
+	}
 
 }
 
