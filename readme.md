@@ -1,5 +1,4 @@
 #Statamic Video Plugin
-## with Vimeo thumbnail support!
 
 This is a plugin for Statamic to embed videos from YouTube and Vimeo. It (optionally) makes use of [FitVids.js][fitvids] to create fluid video embeds for responsive web designs.
 
