@@ -63,7 +63,7 @@ I have not yet implemented the `color` paramater. If you feel like this is impor
 * `id` – an 11 character code pointing to a specific YouTube (or Vimeo) video. In the example above, `X5AZzOw7FwA`.
 * `size` – one of the following; normal, medium, large, larger (see [StackExchange](http://stackoverflow.com/questions/2068344/how-to-get-thumbnail-of-youtube-video-link-using-youtube-api) for details).
 
-####vimeothumb
+###vimeothumb
 
 Works like the YTThumb example above, except I did not implement the option of stripping video ID out of the Vimeo url. This tag just has two parameters: the Vimeo ID and the desired thumbnail size (same as YTThumb - either normal, medium or large.
 
