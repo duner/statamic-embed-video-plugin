@@ -1,4 +1,5 @@
 #Statamic Video Plugin
+## with Vimeo thumbnail support!
 
 This is a plugin for Statamic to embed videos from YouTube and Vimeo. It (optionally) makes use of [FitVids.js][fitvids] to create fluid video embeds for responsive web designs.
 
@@ -61,6 +62,17 @@ I have not yet implemented the `color` paramater. If you feel like this is impor
 * `src` — URL pointing to a YouTube or Vimeo video. 
 * `id` – an 11 character code pointing to a specific YouTube (or Vimeo) video. In the example above, `X5AZzOw7FwA`.
 * `size` – one of the following; normal, medium, large, larger (see [StackExchange](http://stackoverflow.com/questions/2068344/how-to-get-thumbnail-of-youtube-video-link-using-youtube-api) for details).
+
+####vimeothumb
+
+Works like the YTThumb example above, except I did not implement the option of stripping video ID out of the Vimeo url. This tag just has two parameters: the Vimeo ID and the desired thumbnail size (same as YTThumb - either normal, medium or large.
+
+Typical use inside a template might be as follows (assuming you video_id is stored as a field in the page YAML).
+```
+{{video:vimeothumb id="{{video_id}}" size="normal"}}
+
+```
+Somebody more ambitious than I may want to add back in the ability to strip out the ID directly from a Vimeo url.
 
 [twitter]:https://twitter.com/asduner
 [adn]:https://alpha.app.net/duner
