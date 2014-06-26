@@ -78,7 +78,7 @@ class Plugin_Video extends Plugin {
 	
 				var loadFitvids = function() {
 			            if (window.$) {
-			                $.getScript("_add-ons/video/js/jquery.fitvids.min.js")
+			                $.getScript("/_add-ons/video/js/jquery.fitvids.min.js")
 			                $(document).ready(function(){
 				                // Target your .container, .wrapper, .post, etc.
 			        			initializeFitvids();
@@ -221,7 +221,7 @@ class Plugin_Video extends Plugin {
 	
 				var loadFitvids = function() {
 			            if (window.$) {
-			                $.getScript("_add-ons/video/js/jquery.fitvids.min.js")
+			                $.getScript("/_add-ons/video/js/jquery.fitvids.min.js")
 			                $(document).ready(function(){
 				                // Target your .container, .wrapper, .post, etc.
 			        			initializeFitvids();
