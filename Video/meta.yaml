@@ -1,0 +1,6 @@
+name: Video
+version: 1.0.0
+description: Video converts URLs to media on sites like Vimeo into embed code.
+url: https://github.com/duner/statamic-embed-video-plugin
+developer: Alex Duner
+developer_url: http://alexduner.com
